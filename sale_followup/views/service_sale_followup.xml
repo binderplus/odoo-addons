@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+        <record model="ir.cron" id="ir_cron_sale_followup_service">
+            <field name="name">Sale Followup Service</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field><!-- it s every day -->
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="model" eval="'sale.followup.service'"/>
+            <field name="function" eval="'run_sale_followup_update'"/>
+            <field name="args">()</field>
+        </record>
+    </data>
+</openerp>

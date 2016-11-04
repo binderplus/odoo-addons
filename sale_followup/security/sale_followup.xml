@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+<record id="group_manager" model="res.groups">
+    <field name="category_id" ref="base.module_category_hidden"/>
+    <field name="users" eval="[(4, ref('base.user_root'))]"/>
+    <field name="name">Manage sale followups</field>
+    <field name="comment">
+        The user will be able to manage sale followup settings
+        and will be notified when there's a new followup lead.
+    </field>
+</record>
+
+<!-- Add to all sale managers -->
+<record id="base.group_sale_manager" model="res.groups">
+    <field name="implied_ids" eval="[(4, ref('sale_followup.group_manager'))]"/>
+</record>
+
+</data>
+</openerp>
