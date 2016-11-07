@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+        <record model="ir.cron" id="ir_cron_binder_check_deposit">
+            <field name="name">Depósito automático de cheques CIG</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field><!-- it s every day -->
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="model" eval="'account_check_deposit_auto.service'"/>
+            <field name="function" eval="'run_check_deposit_service'"/>
+            <field name="args">()</field>
+        </record>
+    </data>
+</openerp>
