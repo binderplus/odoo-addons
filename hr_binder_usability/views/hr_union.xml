@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<openerp>
+<data>
+
+    <record id="hr_union_view_form" model="ir.ui.view">
+        <field name="model">hr.union</field>
+        <field name="arch" type="xml">
+            <form>
+            <sheet>
+                <div class="oe_title">
+                    <label for="name" class="oe_edit_only"/>
+                    <h1><field name="name"/></h1>
+                </div>
+                <notebook>
+                    <page string="Categories">
+                        <field name="union_category_ids"/>
+                    </page>
+                </notebook>
+            </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_union_view_tree" model="ir.ui.view">
+        <field name="model">hr.union</field>
+        <field name="arch" type="xml">
+            <tree string="Union">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="hr_union_category_view_form" model="ir.ui.view">
+        <field name="model">hr.union.category</field>
+        <field name="arch" type="xml">
+            <form>
+            <sheet>
+                <div class="oe_title">
+                    <label for="name" class="oe_edit_only"/>
+                    <h1><field name="name"/></h1>
+                </div>
+                <group>
+                    <group>
+                        <field name="union_id"/>
+                    </group>
+                </group>
+                <notebook>
+                    <page string="Description">
+                        <field name="description"/>
+                    </page>
+                </notebook>
+            </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_union_category_view_tree" model="ir.ui.view">
+        <field name="model">hr.union.category</field>
+        <field name="arch" type="xml">
+            <tree string="Union Category">
+                <field name="union_id"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <!-- Actions -->
+    <record id="action_hr_union" model="ir.actions.act_window">
+        <field name="name">Unions</field>
+        <field name="res_model">hr.union</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_hr_union_category" model="ir.actions.act_window">
+        <field name="name">Union Categories</field>
+        <field name="res_model">hr.union.category</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menues -->
+    <menuitem id="menu_hr_union_root"
+        name="Unions"
+        parent="hr.menu_hr_configuration"
+        sequence="25" />
+
+    <menuitem id="menu_hr_union"
+        action="action_hr_union"
+        parent="menu_hr_union_root"
+        sequence="10" />
+
+    <menuitem id="menu_hr_union_category"
+        action="action_hr_union_category"
+        parent="menu_hr_union_root"
+        sequence="15" />
+
+</data>
+</openerp>
